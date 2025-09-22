@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="script.js"></script>
+    <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <link rel="stylesheet" href="./styles.css" />
 
     <title>Library</title>
@@ -21,22 +22,27 @@
         <form>
           <label id="title">
             Title
-            <input type="text" name="title" />
+            <input type="text" name="title" id="input-title" required />
           </label>
 
           <label id="author">
             Author
-            <input type="text" name="author" />
+            <input type="text" name="author" id="input-author" required />
           </label>
 
           <label id="pages">
             Pages
-            <input type="text" name="pages" />
+            <input type="text" name="pages" id="input-pages" required />
           </label>
 
           <label id="isFinished">
             Completed
-            <input type="checkbox" name="isFinished" />
+            <input
+              type="checkbox"
+              name="isFinished"
+              id="input-isFinished"
+              required
+            />
           </label>
           <button class="addBook">Add Book</button>
         </form>
@@ -54,22 +60,9 @@
           <div class="status">
             <div class="finished-status">Not finished</div>
 
-            <div class="delete">Trash can emoji</div>
-          </div>
-        </div>
-
-        <div class="books-item" id="">
-          <div class="book-cover">
-            <div class="name">Name</div>
-            <div class="author">Author</div>
-            <div class="pages">Pages</div>
-            <div class="finished">isFinished</div>
-          </div>
-
-          <div class="status">
-            <div class="finished-status">Not finished</div>
-
-            <div class="delete">Trash can emoji</div>
+            <div class="delete">
+              <span class="iconify" data-icon="mdi-trash-can"></span>
+            </div>
           </div>
         </div>
 
@@ -84,7 +77,9 @@
           <div class="status">
             <div class="finished-status">Not finished</div>
 
-            <div class="delete">Trash can emoji</div>
+            <div class="delete">
+              <span class="iconify" data-icon="mdi-trash-can"></span>
+            </div>
           </div>
         </div>
 
@@ -99,7 +94,9 @@
           <div class="status">
             <div class="finished-status">Not finished</div>
 
-            <div class="delete">Trash can emoji</div>
+            <div class="delete">
+              <span class="iconify" data-icon="mdi-trash-can"></span>
+            </div>
           </div>
         </div>
 
@@ -114,7 +111,26 @@
           <div class="status">
             <div class="finished-status">Not finished</div>
 
-            <div class="delete">Trash can emoji</div>
+            <div class="delete">
+              <span class="iconify" data-icon="mdi-trash-can"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="books-item">
+          <div class="book-cover">
+            <div class="name">Name</div>
+            <div class="author">Author</div>
+            <div class="pages">Pages</div>
+            <div class="finished">isFinished</div>
+          </div>
+
+          <div class="status">
+            <div class="finished-status">Not finished</div>
+
+            <div class="delete">
+              <span class="iconify" data-icon="mdi-trash-can"></span>
+            </div>
           </div>
         </div>
       </div>

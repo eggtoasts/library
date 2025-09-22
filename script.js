@@ -1,8 +1,27 @@
 const myLibrary = [];
 
+const blueLock = new Book("BL", "idk", "100", false);
+myLibrary.push(blueLock);
+
 const deleteBookButton = document.querySelector(".deleteBook");
 const addBookButton = document.querySelector(".addBook");
 const booksContainer = document.querySelector(".books-container");
+
+//Form elements
+// const formTitle = document.querySelector();
+const form = document.querySelector("form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let name = document.getElementById("input-title").value;
+  let author = document.getElementById("input-author").value;
+  let pages = document.getElementById("input-pages").value;
+  let isFinished = document.getElementById("input-isFinished").value;
+
+  addBookToLibrary(name, author, pages, isFinished);
+  displayInfo();
+});
 
 //Constructor for Book object
 function Book(name, author, pages, isFinished) {
@@ -15,13 +34,23 @@ function Book(name, author, pages, isFinished) {
   this.id = crypto.randomUUID();
 }
 
-// Adds book into our array.
-function addBookToLibrary(n, a, p, f) {
-  let book = new Book(n, a, p, f);
+//Displays current library to screen.
+function displayInfo() {
+  let child = booksContainer.lastElementChild;
 
-  console.log(book);
-  myLibrary.push(book);
+  while (child) {
+    booksContainer.removeChild(child);
+    child = booksContainer.lastElementChild;
+  }
 
+  //Now append everything back
+  for (let b of myLibrary) {
+    const bookElement = makeBook(b);
+  }
+}
+displayInfo();
+
+function makeBook(book) {
   //creates Book object.
   const bookItem = document.createElement("div");
   const bookCover = document.createElement("div");
@@ -72,7 +101,9 @@ function addBookToLibrary(n, a, p, f) {
   finishedStatus.textContent = "Not finished";
 
   deleteBook.className = "delete";
-  deleteBook.textContent = "Trash can emoji";
+  const icon = document.createElement("span");
+  icon.setAttribute("data-icon", "mdi-trash-can");
+  icon.className = "iconify";
 
   bookCover.appendChild(name);
   bookCover.appendChild(author);
@@ -83,8 +114,33 @@ function addBookToLibrary(n, a, p, f) {
 
   status.appendChild(finishedStatus);
   status.appendChild(deleteBook);
+
+  const deleteSelector = bookItemSelector.querySelector(".delete");
+
+  deleteSelector.addEventListener("click", (e) => {
+    let child = bookItemSelector.lastElementChild;
+
+    while (child) {
+      bookItemSelector.removeChild(child);
+      child = bookItemSelector.lastElementChild;
+    }
+
+    //delete book from library as well
+    let ind = myLibrary.findIndex((obj) => obj.id == book.id);
+
+    myLibrary.splice(ind, 1);
+
+    displayInfo();
+    console.log(ind);
+  });
+
+  deleteSelector.appendChild(icon);
 }
 
-addBookToLibrary("Blue Lock", "Idk", 123, false);
+// Adds book into our array.
+function addBookToLibrary(n, a, p, f) {
+  let book = new Book(n, a, p, f);
 
-//create a book as an example.
+  console.log(book);
+  myLibrary.push(book);
+}

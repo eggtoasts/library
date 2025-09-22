@@ -32,12 +32,10 @@ div {
 
   overflow: auto;
 
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  grid-template-rows: repeat(auto-fit);
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-rows: 1fr 1fr 1fr 1fr;
 
-  gap: 20px;
-
-  align-items: center;
+  align-items: flex-start;
   justify-items: center;
 }
 
