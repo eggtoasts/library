@@ -25,12 +25,24 @@
         <form>
           <label id="title">
             Title
-            <input type="text" name="title" id="input-title" required />
+            <input
+              type="text"
+              name="title"
+              id="input-title"
+              required
+              placeholder="Title of book"
+            />
           </label>
 
           <label id="author">
             Author
-            <input type="text" name="author" id="input-author" required />
+            <input
+              type="text"
+              name="author"
+              id="input-author"
+              placeholder="Author"
+              required
+            />
           </label>
 
           <label id="pages">
@@ -41,6 +53,7 @@
               id="input-pages"
               pattern="[0-9]+"
               title="Numbers only."
+              placeholder="Number of pages"
               required
             />
           </label>
@@ -66,10 +79,7 @@
             <button class="finished-status">Not finished</button>
 
             <div class="delete">
-              <span
-                class="iconify"
-                data-icon="mdi-delete-circle-outline"
-              ></span>
+              <span class="iconify" data-icon="mdi-trash-can"></span>
             </div>
           </div>
         </div>

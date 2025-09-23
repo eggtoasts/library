@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Grenze&family=Grenze+Gotisch:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 body,
 html {
   margin: 0;
@@ -16,6 +17,7 @@ html {
   --secondary-color: rgb(255, 255, 255);
   --header-color: rgb(59, 115, 200);
   --sidebar-color: rgb(235, 240, 255);
+  --header-shadow: rgb(37, 90, 169);
   /* --sidebar-color: rgb(255, 239, 235); */
   --main-color: #61636a;
 }
@@ -87,10 +89,15 @@ div {
 }
 
 .books-item {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease;
 }
+
 .books-item:hover {
   transform: scale(1.03);
+}
+
+.addBook:hover {
+  background-color: var(--header-shadow);
 }
 
 .finished {
@@ -145,6 +152,13 @@ div {
   display: flex;
   align-items: flex-end;
   background-color: var(--header-color);
+  box-shadow: 0px 4px var(--header-shadow);
+  z-index: 2;
+}
+
+.library-title {
+  align-self: center;
+  margin-top: 30px;
 }
 
 .books-title,
@@ -152,9 +166,14 @@ div {
   font-size: 45px;
   font-family: "Grenze";
   color: white;
-  margin-top: 30px;
 
   align-self: center;
+}
+
+.books-title {
+  font-size: 25px;
+  font-family: "Libre Baskerville";
+  margin-top: 50px;
 }
 
 .library-header {
@@ -205,6 +224,7 @@ input {
   margin-top: 5px;
   margin-right: auto;
   border-radius: 20px;
+  padding: 9px;
   border: 2px solid rgb(224, 224, 224);
 }
 
@@ -237,6 +257,14 @@ form button {
   font-weight: bold;
 }
 
+[type]:required:invalid:not(:placeholder-shown) {
+  border-color: red;
+}
+
+input:valid {
+  border-color: rgb(53, 181, 89);
+}
+
 .status {
   justify-content: center;
   align-items: center;
@@ -265,6 +293,13 @@ form button {
   border-radius: 20px;
   text-align: center;
   width: 30px;
+
+  transition: ;
+}
+
+.status .delete:hover {
+  color: red;
+  border-color: red;
 }
 
 .completed button {

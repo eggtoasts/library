@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-const blueLock = new Book("Blue Lock", "Muneyuki Kaneshiro", "100", false);
+const blueLock = new Book("Wdjaidjad", "Muneyuki Kaneshiro", "100", false);
 myLibrary.push(blueLock);
 
 const hxh = new Book("Hunter x Hunter", "Yoshihiro Togashi", "100", false);
