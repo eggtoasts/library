@@ -1,14 +1,16 @@
 const myLibrary = [];
 
-const blueLock = new Book("BL", "idk", "100", false);
+const blueLock = new Book("Blue Lock", "Muneyuki Kaneshiro", "100", false);
 myLibrary.push(blueLock);
+
+const hxh = new Book("Hunter x Hunter", "Yoshihiro Togashi", "100", false);
+myLibrary.push(hxh);
 
 const deleteBookButton = document.querySelector(".deleteBook");
 const addBookButton = document.querySelector(".addBook");
 const booksContainer = document.querySelector(".books-container");
 
 //Form elements
-// const formTitle = document.querySelector();
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
@@ -17,7 +19,13 @@ form.addEventListener("submit", (e) => {
   let name = document.getElementById("input-title").value;
   let author = document.getElementById("input-author").value;
   let pages = document.getElementById("input-pages").value;
-  let isFinished = document.getElementById("input-isFinished").value;
+  let isFinished = document.getElementById("input-isFinished");
+
+  if (isFinished.checked) {
+    isFinished = true;
+  } else {
+    isFinished = false;
+  }
 
   addBookToLibrary(name, author, pages, isFinished);
   displayInfo();
@@ -34,6 +42,10 @@ function Book(name, author, pages, isFinished) {
   this.id = crypto.randomUUID();
 }
 
+Book.prototype.toggleFinished = function (book) {
+  this.isFinished = !this.isFinished;
+};
+
 //Displays current library to screen.
 function displayInfo() {
   let child = booksContainer.lastElementChild;
@@ -48,7 +60,6 @@ function displayInfo() {
     const bookElement = makeBook(b);
   }
 }
-displayInfo();
 
 function makeBook(book) {
   //creates Book object.
@@ -92,13 +103,13 @@ function makeBook(book) {
   author.textContent = book.author;
 
   pages.className = "pages";
-  pages.textContent = book.pages;
+  pages.textContent = book.pages + " pages";
 
   finished.className = "finished";
   finished.textContent = book.isFinished;
 
   finishedStatus.className = "finished-status";
-  finishedStatus.textContent = "Not finished";
+  finishedStatus.textContent = book.isFinished ? "Unread" : "Read";
 
   deleteBook.className = "delete";
   const icon = document.createElement("span");
@@ -117,6 +128,7 @@ function makeBook(book) {
 
   const deleteSelector = bookItemSelector.querySelector(".delete");
 
+  //Adds deletion evnet
   deleteSelector.addEventListener("click", (e) => {
     let child = bookItemSelector.lastElementChild;
 
@@ -131,10 +143,19 @@ function makeBook(book) {
     myLibrary.splice(ind, 1);
 
     displayInfo();
-    console.log(ind);
   });
 
   deleteSelector.appendChild(icon);
+
+  //Adds toggle completion event
+  const toggleSelector = bookItemSelector.querySelector(".finished-status");
+  toggleSelector.addEventListener("click", (e) => {
+    toggleSelector.classList.toggle("completed");
+    finished.classList.toggle("completed");
+
+    book.toggleFinished();
+    displayInfo();
+  });
 }
 
 // Adds book into our array.
@@ -144,3 +165,5 @@ function addBookToLibrary(n, a, p, f) {
   console.log(book);
   myLibrary.push(book);
 }
+
+displayInfo();

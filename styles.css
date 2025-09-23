@@ -32,27 +32,54 @@ div {
 
   overflow: auto;
 
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
+
+  gap: 40px;
 
   align-items: flex-start;
   justify-items: center;
+
+  /* background: red; */
+
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 .book-cover {
   border: 0.1px solid red;
 
-  height: 240px;
-  width: 180px;
+  height: 312px;
+  width: 234px;
 
   display: flex;
   flex-direction: column;
 
+  justify-content: center;
+  align-items: center;
+
   border-radius: 10px;
+
+  position: relative;
 }
 
 .name {
   font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.author {
+}
+
+.pages {
+  font-size: 14px;
+}
+
+.finished {
+  align-self: flex-start;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  /* margin-right: auto; */
 }
 
 .author,

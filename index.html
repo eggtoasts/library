@@ -32,17 +32,19 @@
 
           <label id="pages">
             Pages
-            <input type="text" name="pages" id="input-pages" required />
+            <input
+              type="text"
+              name="pages"
+              id="input-pages"
+              pattern="[0-9]+"
+              title="Numbers only."
+              required
+            />
           </label>
 
           <label id="isFinished">
             Completed
-            <input
-              type="checkbox"
-              name="isFinished"
-              id="input-isFinished"
-              required
-            />
+            <input type="checkbox" name="isFinished" id="input-isFinished" />
           </label>
           <button class="addBook">Add Book</button>
         </form>
@@ -58,75 +60,7 @@
           </div>
 
           <div class="status">
-            <div class="finished-status">Not finished</div>
-
-            <div class="delete">
-              <span class="iconify" data-icon="mdi-trash-can"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="books-item">
-          <div class="book-cover">
-            <div class="name">Name</div>
-            <div class="author">Author</div>
-            <div class="pages">Pages</div>
-            <div class="finished">isFinished</div>
-          </div>
-
-          <div class="status">
-            <div class="finished-status">Not finished</div>
-
-            <div class="delete">
-              <span class="iconify" data-icon="mdi-trash-can"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="books-item">
-          <div class="book-cover">
-            <div class="name">Name</div>
-            <div class="author">Author</div>
-            <div class="pages">Pages</div>
-            <div class="finished">isFinished</div>
-          </div>
-
-          <div class="status">
-            <div class="finished-status">Not finished</div>
-
-            <div class="delete">
-              <span class="iconify" data-icon="mdi-trash-can"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="books-item">
-          <div class="book-cover">
-            <div class="name">Name</div>
-            <div class="author">Author</div>
-            <div class="pages">Pages</div>
-            <div class="finished">isFinished</div>
-          </div>
-
-          <div class="status">
-            <div class="finished-status">Not finished</div>
-
-            <div class="delete">
-              <span class="iconify" data-icon="mdi-trash-can"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="books-item">
-          <div class="book-cover">
-            <div class="name">Name</div>
-            <div class="author">Author</div>
-            <div class="pages">Pages</div>
-            <div class="finished">isFinished</div>
-          </div>
-
-          <div class="status">
-            <div class="finished-status">Not finished</div>
+            <button class="finished-status">Not finished</button>
 
             <div class="delete">
               <span class="iconify" data-icon="mdi-trash-can"></span>
