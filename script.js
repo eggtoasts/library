@@ -8,8 +8,11 @@ const gatsby = new Book(
 );
 myLibrary.push(gatsby);
 
-const hxh = new Book("Pride and Prejudice", "Jane Austen", "448", true);
-myLibrary.push(hxh);
+const got = new Book("Game of Thrones", "George R. R. Martin", "694", true);
+myLibrary.push(got);
+
+const pap = new Book("Pride and Prejudice", "Jane Austen", "448", true);
+myLibrary.push(pap);
 
 const deleteBookButton = document.querySelector(".deleteBook");
 const addBookButton = document.querySelector(".addBook");
