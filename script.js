@@ -74,7 +74,7 @@ function makeBook(book) {
 
   //Status div
   const status = document.createElement("div");
-  const finishedStatus = document.createElement("div");
+  const finishedStatus = document.createElement("button");
   const deleteBook = document.createElement("div");
 
   bookItem.setAttribute("id", book.id);
@@ -106,10 +106,15 @@ function makeBook(book) {
   pages.textContent = book.pages + " pages";
 
   finished.className = "finished";
-  finished.textContent = book.isFinished;
+  finished.textContent = book.isFinished ? "Completed" : "In Progress";
 
   finishedStatus.className = "finished-status";
   finishedStatus.textContent = book.isFinished ? "Unread" : "Read";
+
+  if (book.isFinished) {
+    finishedStatus.classList.add("completed");
+    finished.classList.add("completed");
+  }
 
   deleteBook.className = "delete";
   const icon = document.createElement("span");
@@ -150,10 +155,11 @@ function makeBook(book) {
   //Adds toggle completion event
   const toggleSelector = bookItemSelector.querySelector(".finished-status");
   toggleSelector.addEventListener("click", (e) => {
-    toggleSelector.classList.toggle("completed");
-    finished.classList.toggle("completed");
-
     book.toggleFinished();
+    if (!book.isFinished) {
+      finishedStatus.classList.remove("completed");
+      finished.classList.remove("completed");
+    }
     displayInfo();
   });
 }
