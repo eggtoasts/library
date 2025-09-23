@@ -81,10 +81,8 @@ div {
 
   box-shadow: inset 0.2em 0.2em rgb(192, 192, 192),
     inset 0.5em 0.5em rgb(255, 255, 255), inset 0.7em 0.7em rgb(192, 192, 192),
-    inset 0.9em 0.9em rgb(217, 217, 217),
-    inset -0.5em -0.5em 42px rgba(25, 27, 146, 0.611),
-    inset 1em 1em rgb(0, 24, 85), inset -0.5em 0px var(--book-color),
-    inset -0.9em 0px rgb(23, 18, 164);
+    inset 0.9em 0.9em rgb(217, 217, 217), inset 1em 1em rgb(0, 24, 85),
+    inset -0.5em 0px var(--book-color), inset -0.9em 0px rgb(23, 18, 164);
 
   /* box-shadow: inset 0.2em 0.2em rgb(192, 192, 192),
     inset 0.5em 0.5em rgb(255, 255, 255), inset 0.7em 0.7em rgb(192, 192, 192),
