@@ -29,8 +29,10 @@
               type="text"
               name="title"
               id="input-title"
+              pattern="(\b\w{1,15}\b\s*)+$"
               required
               placeholder="Title of book"
+              title="Each word has a max of 15 characters."
             />
           </label>
 

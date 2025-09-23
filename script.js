@@ -1,9 +1,14 @@
 const myLibrary = [];
 
-const blueLock = new Book("Wdjaidjad", "Muneyuki Kaneshiro", "100", false);
-myLibrary.push(blueLock);
+const gatsby = new Book(
+  "The Great Gatsby",
+  "F. Scott Fitzgerald",
+  "150",
+  false
+);
+myLibrary.push(gatsby);
 
-const hxh = new Book("Hunter x Hunter", "Yoshihiro Togashi", "100", false);
+const hxh = new Book("Pride and Prejudice", "Jane Austen", "448", true);
 myLibrary.push(hxh);
 
 const deleteBookButton = document.querySelector(".deleteBook");
@@ -50,6 +55,7 @@ Book.prototype.toggleFinished = function (book) {
 function displayInfo() {
   let child = booksContainer.lastElementChild;
 
+  //Traverses down and deletes child elements until none are left
   while (child) {
     booksContainer.removeChild(child);
     child = booksContainer.lastElementChild;
@@ -99,6 +105,13 @@ function makeBook(book) {
   name.className = "name";
   name.textContent = book.name;
 
+  let nameArray = book.name.split(" ").filter((x) => x.length > 10);
+
+  //Decreases book name font size if a word exceeds 10 characters
+  if (nameArray.length > 0) {
+    name.style.fontSize = "16px";
+  }
+
   author.className = "author";
   author.textContent = book.author;
 
@@ -142,7 +155,7 @@ function makeBook(book) {
       child = bookItemSelector.lastElementChild;
     }
 
-    //delete book from library as well
+    //Deletes book object from library as well
     let ind = myLibrary.findIndex((obj) => obj.id == book.id);
 
     myLibrary.splice(ind, 1);
